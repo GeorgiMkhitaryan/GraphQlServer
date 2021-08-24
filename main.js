@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const userRoute = require('./Routes/userRoute')
+const mainRoute = require('./Routes/index')
 const mongoose = require('mongoose')
 const userResolver = require('./resolvers/userResolver')
 const schema = require('./Schema/index')
@@ -38,9 +39,7 @@ const startServer = async () => {
   })
 
   app.use('/api/users', userRoute)
-  app.use('/', (req, res) => {
-    return res.status(200).json({ succses: false })
-  })
+  app.use('/', mainRoute)
 }
 
 startServer()
