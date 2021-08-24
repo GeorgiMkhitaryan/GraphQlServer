@@ -27,7 +27,7 @@ const startServer = async () => {
   await server.start()
   server.applyMiddleware({ app, cors: false })
 
-  await mongoose.connect('mongodb://localhost:27017/test1', {
+  await mongoose.connect('mongodb+srv://slackApp:ZhTb3sK4bTpou15g@cluster0.utizo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
