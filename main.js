@@ -38,6 +38,9 @@ const startServer = async () => {
   })
 
   app.use('/api/users', userRoute)
+  app.use('/', (req, res) => {
+    return res.status(200).json({ succses: false })
+  })
 }
 
 startServer()
