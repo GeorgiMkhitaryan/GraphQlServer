@@ -37,6 +37,14 @@ const startServer = async () => {
   app.listen({ port: PORT }, () => {
     console.log(`server started on port ${PORT}`)
   })
+  
+  function ignoreFavicon(req, res, next) {
+  if (req.originalUrl.includes('favicon.ico')) {
+    res.status(204).end()
+  }
+  next();
+}
+  app.use(ignoreFavicon);
 
   app.use('/api/users', userRoute)
   app.use('/', mainRoute)
